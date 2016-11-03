@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/.gradle/caches/modules-2/files-2.1/org.greenrobot/greendao-api/3.2.0/c6d610abe1d75d758431c9234917a349abc0a0ac/greendao-api-3.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c6d610abe1d75d758431c9234917a349abc0a0ac">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/greendao-api-3.2.0_56c0bda74a82c9763c2a2e38ec502138a254110a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/.gradle/caches/modules-2/files-2.1/org.greenrobot/greendao/3.2.0/e70040568b2929b8e5869ad1ffca8e4386dc53bc/greendao-3.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e70040568b2929b8e5869ad1ffca8e4386dc53bc">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/greendao-3.2.0_98b6f12bf79056ff6f0e3b260bd23e87bb8380e6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_c9787de8418ad3c2a04abfe4062b4b3432348bec.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_841c5324b528b3552c4459b2ed1f35d856d3f9db.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.1.0/2de7cd8b95b7021b1d597f049bcb422055119f2c/retrofit-2.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/retrofit-2.1.0_366ea79ffdfe821a3fe4beaedbe8b88c2a710842.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_d858eb19ff15a4b6cea1319de16719b93e4f47c1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/javax.inject-1_0df4e45d8c78e680f9bc51cd70aaeb0835fdda84.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_211f58a96de7494b60a8a1ae45749affd136de86.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_91eba55bf42a6b2c432d8ecc70d64226fe90e0a7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.4.0_95397d61f6e35767bd596ac3b718b0d1e4803380.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_e7f189294faa6b1ce969e1147271cd8ce22a2ce4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c5e6490573cd2cc8018417f60ddd251138b6ed61">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-24.2.1_5fe782cf0af9867072f572b22c06d4567042b486.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_1940851f7e012b3d647d5a16bdab9992f55ea479.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/.gradle/caches/modules-2/files-2.1/com.bluelinelabs/logansquare/1.3.7/21faabea32cf348b11f20bd035f61c82114b2438/logansquare-1.3.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="21faabea32cf348b11f20bd035f61c82114b2438">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/logansquare-1.3.7_ed1721c73366f42bb739898d0a4ef4ab4b70a079.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_c3d6f4203f72a1f98f902d7bef375ee55060bf05.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_2b00ff9fafc86f95060d35c4b55a5a9f7a8d6a97.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_80ed1932c530166ecc99f179098c783bafea74be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.5.1/e2a00ad1d7e540ec395e9296a34da484c8888d4d/jackson-core-2.5.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e2a00ad1d7e540ec395e9296a34da484c8888d4d">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/jackson-core-2.5.1_f8d6b1e33eebbfcaafa402c41187fd63c3979e00.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/com.jakewharton-butterknife-8.4.0_f929566a05dc620495e03be60a774472dfa28aef.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/.gradle/caches/modules-2/files-2.1/com.github.aurae.retrofit2/converter-logansquare/1.4.1/a2e48bc8054738a2bdba7d271d3c256f57e1e98e/converter-logansquare-1.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a2e48bc8054738a2bdba7d271d3c256f57e1e98e">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/converter-logansquare-1.4.1_079a86f81aca0d595f751e3a530e111504d603e0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_426885729f0efceaae2e3fcf37e806be9b6bdc11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_b0c42012480276a69b6a3a0714810c4a770237c5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_d7dd7711ab182e17e157ce48fca141f701feca1c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_ca9399da1302fcb99dddf2f90fae7e232abefb7f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_66b70b57556332640d2a9ef726bcef549acaa818.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_96c2e6853e422418c421bbdcd208134ca5b5b6e7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/okio-1.8.0_27e83e5ac469fdb074d6058b9d805ec432b69018.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.3.0/2b802460eea20f8f2ad9c08c74e0f14718e88aa9/okhttp-3.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/okhttp-3.3.0_8240c5beba1fad39b6a17a8bb562882499d4b6c0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/.gradle/caches/modules-2/files-2.1/com.google.dagger/dagger/2.6.1/e9fd4b4d9cf7d3f93793413dd94722740d2f2a26/dagger-2.6.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e9fd4b4d9cf7d3f93793413dd94722740d2f2a26">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/dagger-2.6.1_316d0859afbaac386c8c013c292d3c0730cf5c37.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_b4e061322e350546af4202404df35ca9da39a2ff.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/res/merged/debug/menu/menu_home.xml",
+        "source": "/Users/niranjan/Desktop/MaterialApplication/app/src/main/res/menu/menu_home.xml"
+    },
+    {
+        "merged": "/Users/mohitesh/CodeBase/Others/MaterialApplication/app/build/intermediates/res/merged/debug/menu/menu_home.xml",
+        "source": "/Users/mohitesh/CodeBase/Others/MaterialApplication/app/src/main/res/menu/menu_home.xml"
+    },
+    {
+        "merged": "/Users/mohitesh/CodeBase/Others/MaterialApplication/app/build/intermediates/res/merged/debug/menu/menu_delete.xml",
+        "source": "/Users/mohitesh/CodeBase/Others/MaterialApplication/app/src/main/res/menu/menu_delete.xml"
+    },
+    {
+        "merged": "/Users/niranjan/Desktop/MaterialApplication/app/build/intermediates/res/merged/debug/menu/menu_delete.xml",
+        "source": "/Users/niranjan/Desktop/MaterialApplication/app/src/main/res/menu/menu_delete.xml"
+    }
+]
