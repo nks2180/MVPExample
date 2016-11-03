@@ -11,7 +11,7 @@ import com.app.todo.presenter.BasePresenterImpl;
 import com.app.todo.presenter.BaseView;
 
 /**
- * Created by mohitesh on 05/09/16.
+ * Created by niranjan on 05/09/16.
  */
 
 public abstract class BaseViewPresenterFragment<P extends BasePresenterImpl> extends BaseFragment implements BaseView {

@@ -20,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by mohitesh on 21/09/16.
+ * Created by niranjan on 21/09/16.
  */
 
 public class TaskListAdapter extends SelectableAdapter<RecyclerView.ViewHolder> {

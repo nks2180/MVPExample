@@ -11,7 +11,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 /**
- * Created by mohitesh on 03/07/16.
+ * Created by niranjan on 03/11/16.
  */
 @Singleton
 @Component(modules={ApplicationModule.class, NetModule.class, DatabaseModule.class})

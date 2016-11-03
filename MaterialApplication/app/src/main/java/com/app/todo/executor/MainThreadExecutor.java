@@ -6,7 +6,7 @@ import android.os.Looper;
 import java.util.concurrent.Executor;
 
 /**
- * Created by mohitesh on 04/08/16.
+ * Created by niranjan on 04/08/16.
  */
 
 public class MainThreadExecutor implements Executor {

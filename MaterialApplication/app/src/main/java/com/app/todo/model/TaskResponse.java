@@ -6,7 +6,7 @@ import com.bluelinelabs.logansquare.annotation.JsonObject;
 import java.util.List;
 
 /**
- * Created by mohitesh on 03/11/16.
+ * Created by niranjan on 03/11/16.
  */
 
 @JsonObject

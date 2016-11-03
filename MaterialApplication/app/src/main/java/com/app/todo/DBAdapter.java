@@ -3,7 +3,7 @@ package com.app.todo;
 import android.content.Context;
 
 /**
- * Created by mohitesh on 03/11/16.
+ * Created by niranjan on 03/11/16.
  */
 public class DBAdapter {
 

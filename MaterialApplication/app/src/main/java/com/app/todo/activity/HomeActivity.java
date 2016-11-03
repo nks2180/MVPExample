@@ -12,7 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -121,20 +120,23 @@ public class HomeActivity extends BaseViewPresenterActivity<HomePresenter> imple
 
         builder.setTitle("Add New Task").setMessage("Please enter the name of task:").setView(editTextTaskName).setPositiveButton("Add", (dialog, which) -> {
             if (editTextTaskName.getText().toString().trim().length() > 0) {
-                hideKeyBoard();
-                Data data = new Data();
-                data.name = editTextTaskName.getText().toString();
-                data.state = 0;
-                data.id = new Random().nextInt();
-                ((TaskCategoryFragment) tasCategoryPageAdapter.getFragmentForPosition(0)).addData(data);
-            }
-            else
+                Data note = new Data();
+                note.name = editTextTaskName.getText().toString();
+                note.state = 0;
+                note.id = new Random().nextInt();
+
+//                Realm realm = Realm.getDefaultInstance();
+//                realm.beginTransaction();
+//                realm.copyToRealmOrUpdate(note);
+//                realm.commitTransaction();
+                ((TaskCategoryFragment) tasCategoryPageAdapter.getFragmentForPosition(0)).addData(note);
+            } else
                 Toast.makeText(HomeActivity.this, "Please enter task Name", Toast.LENGTH_SHORT).show();
 
         }).setNegativeButton(android.R.string.cancel, (dialog, which) -> {
-            hideKeyBoard();
             dialog.dismiss();
         });
+
 
         editTextTaskName.setFocusable(true);
         editTextTaskName.setFocusableInTouchMode(true);
@@ -142,27 +144,19 @@ public class HomeActivity extends BaseViewPresenterActivity<HomePresenter> imple
         builder.show();
     }
 
-    private void hideKeyBoard(){
-        View view = this.getCurrentFocus();
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
-    }
-
-    private void showKeyBoard(){
+    private void showKeyBoard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
     }
 
     @Override
     public void updatePendingTasks(List<Data> pendingTasks) {
-        ((TaskCategoryFragment)tasCategoryPageAdapter.getFragmentForPosition(0)).refreshData(pendingTasks);
+        ((TaskCategoryFragment) tasCategoryPageAdapter.getFragmentForPosition(0)).refreshData(pendingTasks);
     }
 
     @Override
     public void updateCompletedTasks(List<Data> completedTasks) {
-        ((TaskCategoryFragment)tasCategoryPageAdapter.getFragmentForPosition(1)).refreshData(completedTasks);
+        ((TaskCategoryFragment) tasCategoryPageAdapter.getFragmentForPosition(1)).refreshData(completedTasks);
     }
 
     @Override
@@ -172,7 +166,7 @@ public class HomeActivity extends BaseViewPresenterActivity<HomePresenter> imple
 
     @Override
     public void onPageSelected(int position) {
-        if(position == 0) {
+        if (position == 0) {
             menuItem_add.setVisible(true);
         } else {
             menuItem_add.setVisible(false);

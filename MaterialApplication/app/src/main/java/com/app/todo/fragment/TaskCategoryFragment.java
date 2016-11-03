@@ -8,7 +8,6 @@ import android.support.v7.view.ActionMode;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +18,6 @@ import com.app.todo.SlideInItemAnimator;
 import com.app.todo.TaskListAdapter;
 import com.app.todo.component.ApplicationComponent;
 import com.app.todo.model.Data;
-import com.app.todo.model.TaskResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +26,7 @@ import java.util.Locale;
 import butterknife.BindView;
 
 /**
- * Created by mohitesh on 03/11/16.
+ * Created by niranjan on 03/11/16.
  */
 
 public class TaskCategoryFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, TaskListAdapter.OnItemClickListener {
@@ -52,8 +50,8 @@ public class TaskCategoryFragment extends BaseFragment implements SwipeRefreshLa
     public static TaskCategoryFragment newInstance(String category) {
         TaskCategoryFragment taskCategoryFragment = new TaskCategoryFragment();
         Bundle bundle = new Bundle();
-        if(!TextUtils.isEmpty(category)) {
-            bundle.putString(TASK_CATEGORY,category);
+        if (!TextUtils.isEmpty(category)) {
+            bundle.putString(TASK_CATEGORY, category);
         }
 
         taskCategoryFragment.setArguments(bundle);
@@ -83,10 +81,10 @@ public class TaskCategoryFragment extends BaseFragment implements SwipeRefreshLa
     }
 
     public void setUpFeedView() {
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         recyclerVwItems.setLayoutManager(gridLayoutManager);
 
-        taskListAdapter = new TaskListAdapter(getContext(), (ArrayList<Data>) dataList,this);
+        taskListAdapter = new TaskListAdapter(getContext(), (ArrayList<Data>) dataList, this);
         recyclerVwItems.setAdapter(taskListAdapter);
 
         recyclerVwItems.setItemAnimator(new SlideInItemAnimator());
@@ -129,15 +127,15 @@ public class TaskCategoryFragment extends BaseFragment implements SwipeRefreshLa
 
     public void refreshData(List<Data> dataList) {
         boolean isPulledToRefresh = false;
-        if(!this.dataList.isEmpty()) isPulledToRefresh = true;
+        if (!this.dataList.isEmpty()) isPulledToRefresh = true;
 
         this.dataList.clear();
         this.dataList.addAll(dataList);
 
-        if(isPulledToRefresh) {
+        if (isPulledToRefresh) {
             taskListAdapter.notifyDataSetChanged();
         } else {
-            taskListAdapter.notifyItemRangeInserted(0,dataList.size());
+            taskListAdapter.notifyItemRangeInserted(0, dataList.size());
         }
 
         prgrsLoading.setVisibility(View.GONE);
@@ -155,7 +153,7 @@ public class TaskCategoryFragment extends BaseFragment implements SwipeRefreshLa
 
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            mode.getMenuInflater().inflate (R.menu.menu_delete, menu);
+            mode.getMenuInflater().inflate(R.menu.menu_delete, menu);
             return true;
         }
 
@@ -179,22 +177,34 @@ public class TaskCategoryFragment extends BaseFragment implements SwipeRefreshLa
         private void showDeleteAlert(ActionMode mode) {
             AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
             dialog.setTitle("Delete");
-            String text = String.format(Locale.getDefault(),"Are your sure you want to delete %d items",taskListAdapter.getSelectedItemCount());
+            String text = String.format(Locale.getDefault(), "Are your sure you want to delete %d items", taskListAdapter.getSelectedItemCount());
             dialog.setMessage(text);
             dialog.setPositiveButton("Yes", (dialog1, which) -> {
-                List<Integer> selectedItemList = taskListAdapter.getSelectedItems();
-                List<Data> tempList = new ArrayList<>();
-                for(Integer integer : selectedItemList) {
-                    tempList.add(dataList.get(integer.intValue()));
-                }
+                try {
+                    List<Integer> selectedItemList = taskListAdapter.getSelectedItems();
+                    List<Data> tempList = new ArrayList<>();
+                    for (Integer integer : selectedItemList) {
+                        Data noteToBeDeleted = dataList.get(integer.intValue());
+                        int id = noteToBeDeleted.getId();
+                        tempList.add(noteToBeDeleted);
+//                        Realm realm = Realm.getDefaultInstance();
+//                        if (!realm.isInTransaction())
+//                            realm.beginTransaction();
+//                        RealmResults<Data> result = realm.where(Data.class).equalTo(Data.KEY_ID, id).findAll();
+//                        result.deleteAllFromRealm();
 
-                dataList.removeAll(tempList);
-                taskListAdapter.notifyDataSetChanged();
-                // TODO: actually remove items
-                Log.d(TAG, "menu_remove");
-                mode.finish();
+                    }
+
+                    dataList.removeAll(tempList);
+                    taskListAdapter.notifyDataSetChanged();
+                    mode.finish();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             });
-            dialog.setNegativeButton("No", (dialog12, which) -> dialog12.cancel());
+            dialog.setNegativeButton("No", (dialog12, which) -> {
+                dialog12.cancel();
+            });
             dialog.show();
         }
 
@@ -203,5 +213,9 @@ public class TaskCategoryFragment extends BaseFragment implements SwipeRefreshLa
             taskListAdapter.clearSelection();
             actionMode = null;
         }
+    }
+
+    private void deleteNotesFromDB(List<Data> tempList){
+
     }
 }

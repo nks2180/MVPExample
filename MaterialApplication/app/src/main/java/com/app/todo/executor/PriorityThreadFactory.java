@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import java.util.concurrent.ThreadFactory;
 
 /**
- * Created by mohitesh on 04/08/16.
+ * Created by niranjan on 04/08/16.
  */
 
 public class PriorityThreadFactory implements ThreadFactory {

@@ -9,7 +9,7 @@ import com.app.todo.module.DatabaseModule;
 import com.app.todo.module.NetModule;
 
 /**
- * Created by mohitesh on 03/11/16.
+ * Created by niranjan on 03/11/16.
  */
 public class MaterialApplication extends Application {
 
