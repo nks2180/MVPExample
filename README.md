@@ -11,8 +11,6 @@ A MVP based simple ToDo App
  
  
  # To-Do
-  - SqlLite Implementation
-  - Swipe to Refesh
   - Write Unit Test Cases
   
  
