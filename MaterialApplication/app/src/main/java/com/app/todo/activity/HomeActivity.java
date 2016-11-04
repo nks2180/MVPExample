@@ -16,6 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.app.todo.OnSwipeRefreshListener;
 import com.app.todo.R;
 import com.app.todo.component.ApplicationComponent;
 import com.app.todo.fragment.TaskCategoryFragment;
@@ -30,11 +31,12 @@ import java.util.Random;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import io.realm.Realm;
 
-public class HomeActivity extends BaseViewPresenterActivity<HomePresenter> implements HomeView, ViewPager.OnPageChangeListener {
+public class HomeActivity extends BaseViewPresenterActivity<HomePresenter> implements HomeView, ViewPager.OnPageChangeListener, OnSwipeRefreshListener {
 
-    private static final String PENDING_FEEDBACK = "pending";
-    private static final String DONE_FEEDBACK = "done";
+    private static final Integer PENDING_FEEDBACK = 0;
+    private static final Integer DONE_FEEDBACK = 1;
     @Inject
     HomePresenter homePresenter;
     @BindView(R.id.toolbar)
@@ -50,20 +52,24 @@ public class HomeActivity extends BaseViewPresenterActivity<HomePresenter> imple
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setUpUiElements();
         setSupportActionBar(toolbar);
+
     }
 
+    //initialize ui fields
     private void setUpUiElements() {
-        //initialize ui fields
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
 
         tasCategoryPageAdapter = new TasCategoryPageAdapter(getSupportFragmentManager());
 
-        tasCategoryPageAdapter.addFragment(TaskCategoryFragment.newInstance(PENDING_FEEDBACK), "PENDING");
-        tasCategoryPageAdapter.addFragment(TaskCategoryFragment.newInstance(DONE_FEEDBACK), "DONE");
+        TaskCategoryFragment pendingFragment = TaskCategoryFragment.newInstance(PENDING_FEEDBACK);
+        pendingFragment.setSwipeRefreshListener(this);
+        TaskCategoryFragment doneFragment = TaskCategoryFragment.newInstance(DONE_FEEDBACK);
+        doneFragment.setSwipeRefreshListener(this);
+
+        tasCategoryPageAdapter.addFragment(pendingFragment, "PENDING");
+        tasCategoryPageAdapter.addFragment(doneFragment, "DONE");
 
         viewpagerTab.setAdapter(tasCategoryPageAdapter);
         viewpagerTab.addOnPageChangeListener(this);
@@ -125,10 +131,10 @@ public class HomeActivity extends BaseViewPresenterActivity<HomePresenter> imple
                 note.state = 0;
                 note.id = new Random().nextInt();
 
-//                Realm realm = Realm.getDefaultInstance();
-//                realm.beginTransaction();
-//                realm.copyToRealmOrUpdate(note);
-//                realm.commitTransaction();
+                Realm realm = Realm.getDefaultInstance();
+                realm.beginTransaction();
+                realm.copyToRealmOrUpdate(note);
+                realm.commitTransaction();
                 ((TaskCategoryFragment) tasCategoryPageAdapter.getFragmentForPosition(0)).addData(note);
             } else
                 Toast.makeText(HomeActivity.this, "Please enter task Name", Toast.LENGTH_SHORT).show();
@@ -151,12 +157,17 @@ public class HomeActivity extends BaseViewPresenterActivity<HomePresenter> imple
 
     @Override
     public void updatePendingTasks(List<Data> pendingTasks) {
-        ((TaskCategoryFragment) tasCategoryPageAdapter.getFragmentForPosition(0)).refreshData(pendingTasks);
+        ((TaskCategoryFragment) tasCategoryPageAdapter.getFragmentForPosition(0)).refreshData((ArrayList<Data>) pendingTasks);
     }
 
     @Override
     public void updateCompletedTasks(List<Data> completedTasks) {
-        ((TaskCategoryFragment) tasCategoryPageAdapter.getFragmentForPosition(1)).refreshData(completedTasks);
+        ((TaskCategoryFragment) tasCategoryPageAdapter.getFragmentForPosition(1)).refreshData((ArrayList<Data>) completedTasks);
+    }
+
+    @Override
+    public void initAdapter() {
+        setUpUiElements();
     }
 
     @Override
@@ -176,6 +187,12 @@ public class HomeActivity extends BaseViewPresenterActivity<HomePresenter> imple
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onRefresh() {
+        if (null != homePresenter)
+            homePresenter.syncAllTaskfromServer();
     }
 
 

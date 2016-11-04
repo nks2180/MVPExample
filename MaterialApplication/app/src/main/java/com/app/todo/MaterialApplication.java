@@ -8,6 +8,9 @@ import com.app.todo.module.ApplicationModule;
 import com.app.todo.module.DatabaseModule;
 import com.app.todo.module.NetModule;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 /**
  * Created by niranjan on 03/11/16.
  */
@@ -32,6 +35,12 @@ public class MaterialApplication extends Application {
                 .build();
 
         mComponent.inject(this);
+        Realm.init(this);
+        RealmConfiguration config = new RealmConfiguration
+                .Builder()
+                .deleteRealmIfMigrationNeeded()
+                .build();
+
     }
 
     public ApplicationComponent getComponent() {

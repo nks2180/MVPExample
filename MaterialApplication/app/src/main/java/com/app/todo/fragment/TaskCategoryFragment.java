@@ -7,15 +7,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.app.todo.OnSwipeRefreshListener;
 import com.app.todo.R;
 import com.app.todo.SlideInItemAnimator;
 import com.app.todo.TaskListAdapter;
+import com.app.todo.ToDoLogger;
 import com.app.todo.component.ApplicationComponent;
 import com.app.todo.model.Data;
 
@@ -24,6 +25,10 @@ import java.util.List;
 import java.util.Locale;
 
 import butterknife.BindView;
+import io.realm.Realm;
+import io.realm.RealmChangeListener;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 
 /**
  * Created by niranjan on 03/11/16.
@@ -43,17 +48,16 @@ public class TaskCategoryFragment extends BaseFragment implements SwipeRefreshLa
     TaskListAdapter taskListAdapter;
 
     private ActionMode actionMode;
+    private int categoryType;
 
-    List<Data> dataList = new ArrayList<>();
+    ArrayList<Data> dataList = new ArrayList<>();
     private ActionModeCallback actionModeCallback = new ActionModeCallback();
+    OnSwipeRefreshListener swipeRefreshListener;
 
-    public static TaskCategoryFragment newInstance(String category) {
+    public static TaskCategoryFragment newInstance(int category) {
         TaskCategoryFragment taskCategoryFragment = new TaskCategoryFragment();
         Bundle bundle = new Bundle();
-        if (!TextUtils.isEmpty(category)) {
-            bundle.putString(TASK_CATEGORY, category);
-        }
-
+        bundle.putInt(TASK_CATEGORY, category);
         taskCategoryFragment.setArguments(bundle);
 
         return taskCategoryFragment;
@@ -75,12 +79,35 @@ public class TaskCategoryFragment extends BaseFragment implements SwipeRefreshLa
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ToDoLogger.d("onCreate called");
+        if (getArguments() != null && getArguments().containsKey(TASK_CATEGORY))
+            categoryType = getArguments().getInt(TASK_CATEGORY);
+    }
+
+    @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ToDoLogger.d("onViewCreated called");
         setUpFeedView();
+        getNotesFromDB(categoryType);
+    }
+
+    private void getNotesFromDB(int state) {
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<Data> query = realm.where(Data.class).equalTo(Data.KEY_STATE, state);
+        RealmResults<Data> savedNotes = query.findAll();
+        ArrayList<Data> dataArrayList = new ArrayList<>();
+        for(Data data : savedNotes) {
+            dataArrayList.add(data);
+        }
+        if (null != savedNotes && savedNotes.size() > 0)
+            refreshData(dataArrayList);
     }
 
     public void setUpFeedView() {
+        ToDoLogger.d("setUpFeedView called");
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         recyclerVwItems.setLayoutManager(gridLayoutManager);
 
@@ -94,7 +121,7 @@ public class TaskCategoryFragment extends BaseFragment implements SwipeRefreshLa
 
     @Override
     public void onRefresh() {
-
+        swipeRefreshListener.onRefresh();
     }
 
     @Override
@@ -125,7 +152,8 @@ public class TaskCategoryFragment extends BaseFragment implements SwipeRefreshLa
         }
     }
 
-    public void refreshData(List<Data> dataList) {
+    public void refreshData(ArrayList<Data> dataList) {
+        ToDoLogger.d("refreshData called");
         boolean isPulledToRefresh = false;
         if (!this.dataList.isEmpty()) isPulledToRefresh = true;
 
@@ -139,12 +167,15 @@ public class TaskCategoryFragment extends BaseFragment implements SwipeRefreshLa
         }
 
         prgrsLoading.setVisibility(View.GONE);
+        swipeLytItems.setRefreshing(false);
     }
 
     public void addData(Data data) {
         int position = dataList.size();
         dataList.add(data);
         taskListAdapter.notifyItemInserted(position);
+        if (null != prgrsLoading)
+            prgrsLoading.setVisibility(View.GONE);
     }
 
     private class ActionModeCallback implements ActionMode.Callback {
@@ -185,18 +216,10 @@ public class TaskCategoryFragment extends BaseFragment implements SwipeRefreshLa
                     List<Data> tempList = new ArrayList<>();
                     for (Integer integer : selectedItemList) {
                         Data noteToBeDeleted = dataList.get(integer.intValue());
-                        int id = noteToBeDeleted.getId();
                         tempList.add(noteToBeDeleted);
-//                        Realm realm = Realm.getDefaultInstance();
-//                        if (!realm.isInTransaction())
-//                            realm.beginTransaction();
-//                        RealmResults<Data> result = realm.where(Data.class).equalTo(Data.KEY_ID, id).findAll();
-//                        result.deleteAllFromRealm();
-
+                        deleteNoteFromDB(noteToBeDeleted.getId());
                     }
-
                     dataList.removeAll(tempList);
-                    taskListAdapter.notifyDataSetChanged();
                     mode.finish();
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -215,7 +238,29 @@ public class TaskCategoryFragment extends BaseFragment implements SwipeRefreshLa
         }
     }
 
-    private void deleteNotesFromDB(List<Data> tempList){
+    private void deleteNoteFromDB(int id) {
+        Realm realm = Realm.getDefaultInstance();
+        realm.addChangeListener(listener);
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                RealmResults<Data> result = realm.where(Data.class).equalTo(Data.KEY_ID, id).findAll();
+                result.deleteAllFromRealm();
+            }
+        });
+    }
 
+    RealmChangeListener listener = new RealmChangeListener() {
+        @Override
+        public void onChange(Object element) {
+            if (taskListAdapter != null) {
+                taskListAdapter.notifyDataSetChanged();
+            }
+        }
+
+    };
+
+    public void setSwipeRefreshListener(OnSwipeRefreshListener swipeRefreshListener) {
+        this.swipeRefreshListener = swipeRefreshListener;
     }
 }

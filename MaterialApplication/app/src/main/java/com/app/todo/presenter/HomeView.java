@@ -12,4 +12,6 @@ public interface HomeView extends BaseView{
     void updatePendingTasks(List<Data> pendingTasks);
 
     void updateCompletedTasks(List<Data> completedTasks);
+
+    void initAdapter();
 }

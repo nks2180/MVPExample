@@ -17,8 +17,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.realm.Realm;
-import io.realm.RealmQuery;
-import io.realm.RealmResults;
 
 /**
  * Created by niranjan on 03/11/16.
@@ -40,35 +38,12 @@ public class HomePresenter extends BasePresenterImpl<HomeView> implements ApiDat
     @Override
     public void onCreate() {
         super.onCreate();
-        // getNotesFromDB();
+        view.initAdapter();
         syncAllTaskfromServer();
     }
 
-    private void getNotesFromDB(){
-        try {
-            Realm realm = Realm.getDefaultInstance();
-            RealmQuery<Data> query = realm.where(Data.class);
-            RealmResults<Data> savedNotes = query.findAll();
-            if (savedNotes.size() > 0 && null != view) {
-                List<Data> pendingTasks = new ArrayList<>();
-                List<Data> completedTasks = new ArrayList<>();
 
-                for (Data note: savedNotes) {
-                    if (note.state == 0)
-                        pendingTasks.add(note);
-                    else
-                        completedTasks.add(note);
-                }
-                view.updatePendingTasks(pendingTasks);
-                view.updateCompletedTasks(completedTasks);
-            }
-        }
-        catch (Exception ex){
-            ex.printStackTrace();
-        }
-    }
-
-    private void syncAllTaskfromServer() {
+    public void syncAllTaskfromServer() {
         RequestBuilder requestBuilder = new RequestBuilder(NetworkConstants.API_FETCH_TASKS_FROM_SERVER);
         apiController.hitApi(requestBuilder,this);
     }
@@ -87,19 +62,18 @@ public class HomePresenter extends BasePresenterImpl<HomeView> implements ApiDat
                     List<Data> pendingTasks = new ArrayList<>();
                     List<Data> completedTasks = new ArrayList<>();
 
-//                    Realm realm = Realm.getDefaultInstance();
-//                    realm.beginTransaction();
+                    Realm realm = Realm.getDefaultInstance();
+                    realm.beginTransaction();
                     for (int i = 0; i < result.data.size(); i++) {
-                        //Data data = realm.copyToRealmOrUpdate(result.data.get(i));
-                        Data note = result.data.get(i);
-                        //realm.copyToRealmOrUpdate(data);
+                        Data note = realm.copyToRealmOrUpdate(result.data.get(i));
+                        realm.copyToRealmOrUpdate(note);
                         if (note.state == 0) {
                             pendingTasks.add(note);
                         } else {
                             completedTasks.add(note);
                         }
                     }
-                    //realm.commitTransaction();
+                    realm.commitTransaction();
 
 
                     view.updatePendingTasks(pendingTasks);
