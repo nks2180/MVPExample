@@ -16,7 +16,7 @@ import com.app.todo.OnSwipeRefreshListener;
 import com.app.todo.R;
 import com.app.todo.SlideInItemAnimator;
 import com.app.todo.TaskListAdapter;
-import com.app.todo.ToDoLogger;
+import com.app.todo.utils.ToDoLogger;
 import com.app.todo.component.ApplicationComponent;
 import com.app.todo.model.Data;
 

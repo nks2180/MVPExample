@@ -23,6 +23,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.View;
 
+import com.app.todo.utils.AppAnimationUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 

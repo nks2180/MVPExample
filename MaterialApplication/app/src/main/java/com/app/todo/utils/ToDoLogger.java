@@ -1,6 +1,8 @@
-package com.app.todo;
+package com.app.todo.utils;
 
 import android.util.Log;
+
+import com.app.todo.BuildConfig;
 
 /**
  * Created by niranjan on 11/4/16.

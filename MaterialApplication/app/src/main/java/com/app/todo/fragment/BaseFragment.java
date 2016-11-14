@@ -35,7 +35,7 @@ import butterknife.Unbinder;
  * dependency injection configuration, ButterKnife Android library configuration and some methods
  * common to every fragment.
  *
- * @author Pedro Vicente Gómez Sánchez
+ * @author Niranjan
  */
 public abstract class BaseFragment extends Fragment {
 
